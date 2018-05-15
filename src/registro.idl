@@ -1,5 +1,5 @@
 module sop_corba{
-	interface sop_corba{
+	interface solucion{
 		void comenzarJuego();
 		string adivinarLetra(in char letra);
 		boolean adivinarPalabra(in string palabra);
