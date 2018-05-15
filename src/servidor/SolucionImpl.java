@@ -18,12 +18,14 @@ public class SolucionImpl extends solucionPOA{
      String[] palabras={"usb","monitor","mouse","procesador","teclado","parlantes","cpu","escaner"};
      String actual;
      int a,flag,intentos=0;
-     char[] letras;
+     String ltrs;
+     //char [] letras;
 
     
     @Override
     public void comenzarJuego() {
         System.out.println(" $ Jugador solicita: Comenzar Juego");
+        ltrs="";
         flag=0;
         actual="";
         intentos=0;
@@ -31,20 +33,27 @@ public class SolucionImpl extends solucionPOA{
         n= (int) (Math.random() * palabras.length);
         actual=palabras[n];
         for (int i = 0; i < actual.length(); i++) {
-            letras[i]='_';
+            ltrs=ltrs+'_';
         }
         a=actual.length();
+        System.out.println("    palabra:"+actual);
+        System.out.println("    longitud:"+actual.length());
+        System.out.println("    intentos:"+intentos);
+        System.out.println("    aciertos"+a);
     }
 
     @Override
     public String adivinarLetra(char letra) {
         System.out.println(" $ Jugador solicita: Adivinar Letra");
-        String cadena;
+        System.out.println("   Palabra: "+actual);
+        System.out.println("   ltrs: "+ltrs);
+        String cadena="";
         int n=0;
         if(flag==0){
             
             if(intentos<5){
                 
+                char[] letras = ltrs.toCharArray();
                 for (int i = 0; i < actual.length(); i++) {
                     if(actual.charAt(i)==letra){
                         letras[i]=letra;
@@ -54,26 +63,36 @@ public class SolucionImpl extends solucionPOA{
                     
                 }
                 
+                ltrs="";
+                
+                for (int i = 0; i < letras.length; i++) {
+                    ltrs=ltrs+letras[i];
+                }
+                //ltrs=Arrays.toString(letras);
+                System.out.println("   letras por adivinar: "+a);
+                System.out.println("   ltrs: "+ltrs);
+                
                 if(n==0){
                         intentos++;
                 }
                 
                 if(a==0){
-                    cadena="¡VICTORIA!\n";
-                    cadena=cadena+mostrarPalabras();
+                    cadena=mostrarPalabras();
+                    cadena=cadena+"\n"+"VICTORIA";
                 }
                 
-                cadena=Arrays.toString(letras);
+                cadena=ltrs;
         
                 
             }else{
-                cadena="Fin del juego, supero los 5 intentos\n";
-                cadena= cadena+mostrarPalabras();
+                cadena=mostrarPalabras();
+                cadena=cadena+"\n"+"Fin del juego, supero los 5 intentos\n";
+                
             }
         }else{
             cadena="Debe iniciar juego primero";
         }
-        
+        System.out.println("    cadena:" + cadena);
         return cadena;
     }
 
@@ -99,7 +118,6 @@ public class SolucionImpl extends solucionPOA{
     @Override
     public int numeroIntentos() {
         System.out.println(" $ Jugador solicita: Numero de intentos");
-        intentos=intentos+1;
         return intentos;
     }
 

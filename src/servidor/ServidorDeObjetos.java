@@ -23,9 +23,9 @@ public class ServidorDeObjetos {
       SolucionImpl convref = new SolucionImpl();
        
       //*** obtiene la referencia del objeto desde el servant ***
-      org.omg.CORBA.Object objSolucion = 
+      org.omg.CORBA.Object obj = 
       rootpoa.servant_to_reference(convref);
-      solucion href = solucionHelper.narrow(objSolucion);
+      solucion href = solucionHelper.narrow(obj);
 	  
       // obtiene la base del contexto de nombrado
       org.omg.CORBA.Object objref =
