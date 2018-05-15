@@ -1,0 +1,10 @@
+module sop_corba{
+	interface sop_corba{
+		void comenzarJuego();
+		string adivinarLetra(in char letra);
+		boolean adivinarPalabra(in string palabra);
+		long longitudPalabra();
+		long numeroIntentos();
+		string mostrarPalabras();
+	};
+};
