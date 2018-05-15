@@ -10,7 +10,7 @@ public class ClienteDeObjetos
 {
   //*** Atributo estático ***
   static solucionOperations ref;
-  static boolean flag=false;
+  static boolean flag;
 
   public static void main(String args[])
     {
@@ -29,7 +29,7 @@ public class ClienteDeObjetos
 
         System.out.println("Obtenido el manejador sobre el servidor de objetos: " +ref);
         
-        
+        flag=false;
         menuPrincipal();
 
 	} catch (Exception e) {
@@ -62,7 +62,7 @@ public class ClienteDeObjetos
                         break;
                         
                     case 1:
-                        if(flag==false){
+                        if(!flag){
                             iniciarJuego();
                         }else{
                             System.out.println("EL juego ya esta iniciado desea comenzar uno nuevo?");
