@@ -19,12 +19,12 @@ public class ClienteDeObjetos
 	    ORB orb = ORB.init(args, null);
 
         // obtiene la base del naming context
-        org.omg.CORBA.Object objRef = 
+        org.omg.CORBA.Object objSolucion = 
 	    orb.resolve_initial_references("NameService");     
-        NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
+        NamingContextExt ncRef = NamingContextExtHelper.narrow(objSolucion);
  
         // *** Resuelve la referencia del objeto en el N_S ***
-        String name = "xxx";
+        String name = "objSolucion";
         ref = solucionHelper.narrow(ncRef.resolve_str(name));
 
         System.out.println("Obtenido el manejador sobre el servidor de objetos: " +ref);

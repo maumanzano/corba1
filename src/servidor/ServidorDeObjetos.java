@@ -1,7 +1,6 @@
 package servidor;
 
 import org.omg.CosNaming.*;
-import org.omg.CosNaming.NamingContextPackage.*;
 import org.omg.CORBA.*;
 import org.omg.PortableServer.*;
 import org.omg.PortableServer.POA;
@@ -24,9 +23,9 @@ public class ServidorDeObjetos {
       SolucionImpl convref = new SolucionImpl();
        
       //*** obtiene la referencia del objeto desde el servant ***
-      org.omg.CORBA.Object obj = 
+      org.omg.CORBA.Object objSolucion = 
       rootpoa.servant_to_reference(convref);
-      solucion href = solucionHelper.narrow(obj);
+      solucion href = solucionHelper.narrow(objSolucion);
 	  
       // obtiene la base del contexto de nombrado
       org.omg.CORBA.Object objref =
@@ -36,7 +35,7 @@ public class ServidorDeObjetos {
       NamingContextExt ncref = NamingContextExtHelper.narrow(objref);
 
       // *** Realiza el binding de la referencia de objeto en el N_S ***
-      String name = "xxxx";
+      String name = "objSolucion";
       NameComponent path[] = ncref.to_name( name );
       ncref.rebind(path, href);
 
