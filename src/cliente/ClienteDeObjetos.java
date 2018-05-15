@@ -10,7 +10,7 @@ public class ClienteDeObjetos
 {
   //*** Atributo estático ***
   static solucionOperations ref;
-  static boolean flag=false;
+  static boolean flag;
 
   public static void main(String args[])
     {
@@ -29,7 +29,7 @@ public class ClienteDeObjetos
 
         System.out.println("Obtenido el manejador sobre el servidor de objetos: " +ref);
         
-        
+        flag=false;
         menuPrincipal();
 
 	} catch (Exception e) {
@@ -62,7 +62,7 @@ public class ClienteDeObjetos
                         break;
                         
                     case 1:
-                        if(flag=false){
+                        if(!flag){
                             iniciarJuego();
                         }else{
                             System.out.println("EL juego ya esta iniciado desea comenzar uno nuevo?");
@@ -129,7 +129,7 @@ public class ClienteDeObjetos
     
     public static void adivinarPalabra(){
         String palabra="";
-        boolean flag=false;
+        boolean flag2=false;
         
         if(!flag){
             System.out.println("Error primero debes iniciar un juego");
@@ -143,13 +143,16 @@ public class ClienteDeObjetos
             if(palabra.length()==0){
                 System.out.println("La palabra que envio es vacia");
             }else{    
-                flag=ref.adivinarPalabra(palabra);
+                flag2=ref.adivinarPalabra(palabra);
             }
 
-            if(flag){
+            if(flag2){
                 System.out.println("Congrats adivino la palabra");
                 System.out.println("Fin del juego");
                 flag=false;
+            }else{
+                System.out.println("Error no adivino la palabra");
+            
             }
         }
     }
