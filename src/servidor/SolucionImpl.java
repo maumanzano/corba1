@@ -23,6 +23,7 @@ public class SolucionImpl extends solucionPOA{
     
     @Override
     public void comenzarJuego() {
+        System.out.println(" $ Jugador solicita: Comenzar Juego");
         flag=0;
         actual="";
         intentos=0;
@@ -37,7 +38,7 @@ public class SolucionImpl extends solucionPOA{
 
     @Override
     public String adivinarLetra(char letra) {
-        
+        System.out.println(" $ Jugador solicita: Adivinar Letra");
         String cadena;
         int n=0;
         if(flag==0){
@@ -78,6 +79,7 @@ public class SolucionImpl extends solucionPOA{
 
     @Override
     public boolean adivinarPalabra(String palabra) {
+        System.out.println(" $ Jugador solicita: Adivinar Palabra");
        boolean flag=false;
        if(palabra.equals(actual)){
            flag=true;
@@ -90,17 +92,20 @@ public class SolucionImpl extends solucionPOA{
 
     @Override
     public int longitudPalabra() {
+        System.out.println(" $ Jugador solicita: Longitud de palabra");
         return actual.length();
     }
 
     @Override
     public int numeroIntentos() {
+        System.out.println(" $ Jugador solicita: Numero de intentos");
         intentos=intentos+1;
         return intentos;
     }
 
     @Override
     public String mostrarPalabras() {
+        System.out.println(" $ Jugador solicita: Mostrar palabra");
         flag=1;
         return actual;
     }
