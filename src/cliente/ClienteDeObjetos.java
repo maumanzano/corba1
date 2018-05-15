@@ -91,7 +91,8 @@ public class ClienteDeObjetos
                         mostrarPalabra();
                         break;
                     default:
-                            System.out.println("Opción incorrecta");
+                        System.out.println("Opción incorrecta");
+                        break;
             }
 
         }while(opcion != 3);
