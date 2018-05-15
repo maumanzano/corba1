@@ -21,12 +21,12 @@ public class ServidorDeObjetos {
       rootpoa.the_POAManager().activate();
 
       //*** crea una instancia del servant y lo registra con el ORB ***
-      xxxImpl convref = new xxxxImpl();
+      SolucionImpl convref = new SolucionImpl();
        
       //*** obtiene la referencia del objeto desde el servant ***
       org.omg.CORBA.Object obj = 
       rootpoa.servant_to_reference(convref);
-      xxxx href = xxxxHelper.narrow(obj);
+      solucion href = solucionHelper.narrow(obj);
 	  
       // obtiene la base del contexto de nombrado
       org.omg.CORBA.Object objref =
