@@ -36,17 +36,12 @@ public class SolucionImpl extends solucionPOA{
             ltrs=ltrs+'_';
         }
         a=actual.length();
-        System.out.println("    palabra:"+actual);
-        System.out.println("    longitud:"+actual.length());
-        System.out.println("    intentos:"+intentos);
-        System.out.println("    aciertos"+a);
+        
     }
 
     @Override
     public String adivinarLetra(char letra) {
         System.out.println(" $ Jugador solicita: Adivinar Letra");
-        System.out.println("   Palabra: "+actual);
-        System.out.println("   ltrs: "+ltrs);
         String cadena="";
         int n=0;
         if(flag==0){
@@ -68,22 +63,19 @@ public class SolucionImpl extends solucionPOA{
                 for (int i = 0; i < letras.length; i++) {
                     ltrs=ltrs+letras[i];
                 }
-                //ltrs=Arrays.toString(letras);
-                System.out.println("   letras por adivinar: "+a);
-                System.out.println("   ltrs: "+ltrs);
+                
                 
                 if(n==0){
                         intentos++;
                 }
                 
+                cadena=ltrs;
+                
                 if(a==0){
                     cadena=mostrarPalabras();
                     cadena=cadena+"\n"+"VICTORIA";
                 }
-                
-                cadena=ltrs;
         
-                
             }else{
                 cadena=mostrarPalabras();
                 cadena=cadena+"\n"+"Fin del juego, supero los 5 intentos\n";
@@ -92,7 +84,7 @@ public class SolucionImpl extends solucionPOA{
         }else{
             cadena="Debe iniciar juego primero";
         }
-        System.out.println("    cadena:" + cadena);
+        
         return cadena;
     }
 
